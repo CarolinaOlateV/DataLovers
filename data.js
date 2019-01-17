@@ -7,10 +7,18 @@
 
 
 
-const filterFeedlabel = (showData, condition) => {
-  //filter es un ciclo iterativo como el for, forech, reviw
-  const filteredFeedlabel= showData.filter(element => {
+const filterAuthor = (showData, condition) => {
+  
+  const filteredAuthor= showData.filter(element => {
       return element.author === condition
   })
-  return filteredFeedlabel;
+  return filteredAuthor;
  }
+ 
+ const sortOrder = (showData, condition) => {
+  //console.log(condition);
+  const sorted = showData.sort((a, b) => (a[condition] > b[condition]) ? 1 : -1);
+  return sorted;
+ }
+
+ 

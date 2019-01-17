@@ -1,7 +1,7 @@
 const containerRoot = document.getElementById('root');
 const showData = (STEAM.appnews.newsitems);
-//const selectTitle = ('title');
-const selectFeedlabel = document.getElementById('category');
+const selectAuthor = document.getElementById('category');
+const selectTitle = document.getElementById('order');
 
 
 const printData = (showData) => { 
@@ -14,9 +14,10 @@ let result = '';
     <div>
       <div class='card'>
         <div class='box'>
+        <div class='img'>
               <a href='${element.url}'>
           </div>
-          <h2>${element.title}<br><span>Autor: No Aplica</span></h2>
+          <h2>${element.title}<br><span>No Aplica</span></h2>
           <p>Feed Label: ${element.feedlabel}</p>
         </div>
       </div>
@@ -26,6 +27,7 @@ let result = '';
     <div>
       <div class='card'>
         <div class='box'>
+        <div class='img'>
               <a href='${element.url}'>
           </div>
           <h2>${element.title}<br><span>${element.author}</span></h2>
@@ -40,9 +42,9 @@ return result;
 
 //filtrando
 
-selectFeedlabel.addEventListener('change', () => {
-  let condition = selectFeedlabel.value
-  let filtered = filterFeedlabel(showData, condition);
+selectAuthor.addEventListener('change', () => {
+  let condition = selectAuthor.value
+  let filtered = filterAuthor(showData, condition);
   // limpio div
   containerRoot.innerHTML = '';
 
@@ -52,9 +54,10 @@ selectFeedlabel.addEventListener('change', () => {
       <div>
         <div class='card'>
           <div class='box'>
+          <div class='img'>
                 <a href='${element.url}'>
             </div>
-            <h2>${element.title}<br><span>Autor: No Aplica</span></h2>
+            <h2>${element.title}<br><span>No Aplica</span></h2>
             <p>Feed Label: ${element.feedlabel}</p>
           </div>
         </div>
@@ -64,6 +67,7 @@ selectFeedlabel.addEventListener('change', () => {
       <div>
         <div class='card'>
           <div class='box'>
+          <div class='img'>
                 <a href='${element.url}'>
             </div>
             <h2>${element.title}<br><span>${element.author}</span></h2>
@@ -74,4 +78,43 @@ selectFeedlabel.addEventListener('change', () => {
         }
   })
 })
+
+//ordenando
+selectTitle.addEventListener('change', () => {
+  let condition = selectTitle.value
+  let filtered = sortOrder(showData,condition);
+  //limpio div
+  containerRoot.innerHTML = '';
+
+  filtered.forEach(element => {
+    //if (element.author === '' && element.feedlabel !== '') {
+      result = containerRoot.innerHTML += `
+      <div>
+        <div class='card'>
+          <div class='box'>
+          <div class='img'>
+                <a href='${element.url}'>
+            </div>
+            <h2>${element.title}<br><span>No Aplica</span></h2>
+            <p>Feed Label: ${element.feedlabel}</p>
+          </div>
+        </div>
+      </div>`
+    /*} else {
+      result = containerRoot.innerHTML += `
+      <div>
+        <div class='card'>
+          <div class='box'>
+          <div class='img'>
+                <a href='${element.url}'>
+            </div>
+            <h2>${element.title}<br><span>${element.author}</span></h2>
+            <p>Feed Label: ${element.feedlabel}</p>
+          </div>
+       </div>
+      </div>` 
+        }*/
+  })
+})
+
 window.onload = printData(showData);
