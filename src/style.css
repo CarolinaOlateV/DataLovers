@@ -1,7 +1,7 @@
 body {
   background: #0B3D58;
 }
-header {
+/*header {
   background: #1D1F25;
   color: #C6C4C2;
   width: auto;
@@ -10,7 +10,7 @@ header {
   font-weight: bold;
   padding: 20px;
 
-}
+}*/
 .container-fluid {
   display: flex;
   flex-direction: row;
@@ -56,4 +56,19 @@ header {
 }
 .card .box span {
   display: inline-flex;
+}
+
+select {
+  background-color: #1A6E94;
+  color: white;
+  box-shadow: 0 2px 5px black;
+}
+
+select:hover {
+  background-color: #E0E9EE;
+  color: black;
+}
+
+.banner {
+  background: #1D1F25;
 }
