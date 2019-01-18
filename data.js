@@ -14,11 +14,17 @@ const filterAuthor = (showData, condition) => {
   })
   return filteredAuthor;
  }
+ window.filterAuthor = filterAuthor;
  
  const sortOrder = (showData, condition) => {
   //console.log(condition);
   const sorted = showData.sort((a, b) => (a[condition] > b[condition]) ? 1 : -1);
   return sorted;
  }
+ window.sortOrder = sortOrder;
+ 
+
+ 
+ 
 
  
