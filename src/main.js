@@ -1,5 +1,5 @@
 const containerRoot = document.getElementById('root');
-const showData = (STEAM.appnews.newsitems);
+const showData = (window.STEAM.appnews.newsitems);
 const selectAuthor = document.getElementById('category');
 const selectTitle = document.getElementById('order');
 
@@ -44,7 +44,7 @@ return result;
 
 selectAuthor.addEventListener('change', () => {
   let condition = selectAuthor.value
-  let filtered = filterAuthor(showData, condition);
+  let filtered = window.filterAuthor(showData, condition);
   // limpio div
   containerRoot.innerHTML = '';
 
@@ -79,10 +79,10 @@ selectAuthor.addEventListener('change', () => {
   })
 })
 
-//ordenando
+//ordenando 
 selectTitle.addEventListener('change', () => {
   let condition = selectTitle.value
-  let filtered = sortOrder(showData,condition);
+  let filtered = window.sortOrder(showData,condition);
   //limpio div
   containerRoot.innerHTML = '';
 
